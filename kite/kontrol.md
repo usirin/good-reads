@@ -76,3 +76,35 @@ interface Kontrol {
   register(url: string, callback: Function): void;
 }
 ```
+
+## Usage
+
+`Kontrol` creates an instance for connecting to a remote `Kontrol` instance running on given `url`.
+
+```coffeescript
+Kontrol = require 'kite.js/kontrol'
+
+kontrol = new Kontrol
+  url: 'ws://my-kontrol-registry.com'
+  transportClass: require 'ws'
+  username: 'john-doe'
+  auth:
+    type: 'kiteKey'
+    token: '...'
+```
+
+This will create an instance to connect to the remote `kontrol`'s `kite` running on `ws://my-kontrol-registry.com`.
+
+We can use this `kontrol` instance to fetch kite's registered to it.
+
+```coffeescript
+params =
+  query: { name: 'math' }
+  
+kontrol.fetchKite(params).then (mathKite) ->
+  mathKite
+    .connect()
+    .tell 'square', [4]
+    .then (result) -> console.log "Math kite response: #{result}"
+# => Math kite response: 16
+```
