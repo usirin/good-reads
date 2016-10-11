@@ -45,7 +45,7 @@ declare interface KiteOptions {
   
   autoConnect?: bool;
   autoReconnect?: bool;
-  prefix?: bool;
+  prefix?: string;
   logLevel: KiteLoggingLevel;
   api: KiteApiDescription;
   auth: { type: string, key: KiteAuthToken };
