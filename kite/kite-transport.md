@@ -1,4 +1,4 @@
-## Kite Server Transport
+## Kite Transport
 
 A class that is used by a `kite` as `transformClass` option.
 
@@ -21,7 +21,7 @@ declare type TransportEventHandler = {
   [TransportEvent.INFO]: (info: Object) => void
 }
 
-declare interface KiteServerTransport {
+declare interface KiteTransport {
   addEventListener(eventName: TransportEvent, handler: Function);
   
   close();
