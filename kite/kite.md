@@ -129,6 +129,7 @@ In more detail:
         @ws = new Transport url
     ```
   - It will create a connection with its `transportClass` which can be accesses via `kite.ws`:
+  
     ```coffeescript
     # kite.coffee
     connect: ->
